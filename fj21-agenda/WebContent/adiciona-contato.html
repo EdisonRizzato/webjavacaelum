@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Adiciona Contatos</title>
+</head>
+<body>
+	<h1>Adiciona Contatos</h1>
+	<hr />
+	<form action="adicionaContato" method="POST">
+		Nome: <input type="text" name="nome" /><br />
+		E-mail: <input type="email" name="email" /><br />
+		Endereço: <input type="text" name="endereco" /><br />
+		Data Nascimento: <input type="date" name="dataNascimento" /><br />
+		<select name="sexo">
+			<option value="fem">Feminino</option>
+			<option value="masc">Masculino</option>
+			<option value="outro">Outro</option>
+		</select><br />
+		<input type="submit" value="Gravar" />
+	</form>
+</body>
+</html>
