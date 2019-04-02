@@ -2,11 +2,13 @@ package br.com.caelum.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +22,6 @@ import br.com.caelum.agenda.modelo.Contato;
 public class AdicionaContatoServlet extends HttpServlet{
 	
 	private static final 	SimpleDateFormat 	dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private 				ContatoDao			daoContato = new ContatoDao(); 
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,14 +55,11 @@ public class AdicionaContatoServlet extends HttpServlet{
 		contato.setEmail(email);
 		contato.setDataNascimento(dataNascimento);
 		
+		Connection connection = (Connection) req.getAttribute("conexao");
+		ContatoDao daoContato = new ContatoDao(connection);
 		daoContato.adiciona(contato);
 		
-		if(sexo.contentEquals(fem)) {
-			out.println("Contato " + contato.getNome() + " cadastrada com sucesso!");
-		} else if (sexo.contentEquals(masc)) {
-			out.println("Contato " + contato.getNome() + " cadastrado com sucesso!");
-		} else {
-			out.println("Contato " + contato.getNome() + " cadastradx com sucesso!");
-		}
+		RequestDispatcher rd = req.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(req, resp);
 	}
 }
