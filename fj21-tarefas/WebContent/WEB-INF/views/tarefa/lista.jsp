@@ -26,14 +26,14 @@
 		<ul class="navbar-menu animate">
 			<li>
 				<a href="novaTarefa" class="animate">
-					<span class="desc animate"> Who We Are </span>
-					<span class="glyphicon glyphicon-user"></span>
+					<span class="desc animate"> Criar Tarefa </span>
+					<span class=""><i class="fas fa-calendar-plus"></i></span>
 				</a>
 			</li>
 			<li>
 				<a href="efetuaLogout" class="animate">
-					<span class="desc animate"> What We Say </span>
-					<span class="glyphicon glyphicon-info-sign"></span>
+					<span class="desc animate"> Logout </span>
+					<span class=""><i class="fas fa-sign-out-alt"></i></span>
 				</a>
 			</li>
 		</ul>
