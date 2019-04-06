@@ -11,6 +11,9 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Tarefa {
 	
@@ -18,11 +21,13 @@ public class Tarefa {
 	@GeneratedValue
 	private Long id;
 	
+	@JsonProperty("Descrição")
 	@Size(min=5, message="{tarefa.descricao.pequena}")
 	private String descricao;
 	
 	private boolean finalizado;
 	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFinalizacao;

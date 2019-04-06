@@ -12,7 +12,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		
 		String uri = req.getRequestURI();
-		if(uri.endsWith("loginForm") || uri.endsWith("efetuaLogin") || uri.contains("resources"))
+		if(uri.endsWith("loginForm") || uri.endsWith("efetuaLogin") || uri.contains("resources") || uri.contains("/rest"))
 			return true;
 		
 		if(req.getSession().getAttribute("usuarioLogado") != null)
